@@ -10,7 +10,7 @@ const MANUAL_API_KEY = 'YOUR_GEMINI_API_KEY_HERE';
 const API_KEY = process.env.API_KEY || (import.meta as any).env?.VITE_API_KEY || MANUAL_API_KEY;
 
 if (!API_KEY || API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
-  console.warn("Gemini API Key is missing. Please set VITE_API_KEY or update MANUAL_API_KEY in services/ConversationAccess.ts");
+    console.warn("Gemini API Key is missing. Please set VITE_API_KEY or update MANUAL_API_KEY in services/ConversationAccess.ts");
 }
 
 const genAI = new GoogleGenAI({ apiKey: API_KEY || '' });
@@ -36,7 +36,7 @@ const modelConfig = {
 
 function mapMessageToContent(msg: Message): { role: string; parts: Part[] } {
     const parts: Part[] = [];
-    
+
     // Add attachments as inlineData if they exist and are supported
     if (msg.attachments && msg.attachments.length > 0) {
         msg.attachments.forEach(att => {
@@ -90,13 +90,13 @@ export async function* streamChatResponse(sessionId: string, messages: Message[]
         chat = createChat(history, systemPrompt);
         conversationStore.set(sessionId, chat);
     }
-    
+
     const lastMessage = messages[messages.length - 1];
     if (!lastMessage) return;
 
     // Construct the parts for the new message
     const messageContent = mapMessageToContent(lastMessage);
-    
+
     if (messageContent.parts.length === 0) {
         console.warn("Skipping empty message content");
         return;
@@ -108,10 +108,10 @@ export async function* streamChatResponse(sessionId: string, messages: Message[]
         ? messageContent.parts[0].text
         : messageContent.parts;
 
-    const result = await chat.sendMessageStream({ 
-        message: msgParam 
+    const result = await chat.sendMessageStream({
+        message: msgParam
     });
-    
+
     for await (const chunk of result) {
         yield chunk.text;
     }
@@ -124,13 +124,13 @@ export function deleteConversation(sessionId: string) {
 // --- Audio / TTS Helpers ---
 
 function decode(base64: string): Uint8Array {
-  const binaryString = atob(base64);
-  const len = binaryString.length;
-  const bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) {
-    bytes[i] = binaryString.charCodeAt(i);
-  }
-  return bytes;
+    const binaryString = atob(base64);
+    const len = binaryString.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+    }
+    return bytes;
 }
 
 export async function generateAmharicSpeech(text: string): Promise<ArrayBuffer> {
@@ -149,22 +149,23 @@ export async function generateAmharicSpeech(text: string): Promise<ArrayBuffer> 
     if (!base64Audio) {
         throw new Error("No audio data returned from model");
     }
-    
-    return decode(base64Audio).buffer;
+
+    // Fix: Explicitly cast to ArrayBuffer to satisfy TypeScript
+    return decode(base64Audio).buffer as ArrayBuffer;
 }
 
 export async function playAudioBuffer(audioBuffer: ArrayBuffer): Promise<void> {
     const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
     const ctx = new AudioContext({ sampleRate: 24000 }); // Gemini TTS usually outputs 24kHz
-    
+
     const dataView = new DataView(audioBuffer);
     const numChannels = 1;
     const sampleRate = 24000;
     const frameCount = audioBuffer.byteLength / 2; // 16-bit samples
-    
+
     const buffer = ctx.createBuffer(numChannels, frameCount, sampleRate);
     const channelData = buffer.getChannelData(0);
-    
+
     for (let i = 0; i < frameCount; i++) {
         // Convert Int16 to Float32
         const sample = dataView.getInt16(i * 2, true); // Little endian
