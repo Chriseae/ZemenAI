@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description"
+    content="An Amharic-native AI inference service built on Google's Gemini API, providing culturally nuanced and contextually aware AI interactions." />
+
+  <title>ZemenAI - Amharic AI Assistant</title>
+
+  <script src="https://js.stripe.com/v3/"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- ✅ FIXED IMPORTMAP — React 18 only (no React 19!) -->
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom": "https://esm.sh/react-dom@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "@google/genai": "https://esm.sh/@google/genai@0.2.0"
+      }
+    }
+    </script>
+
+  <!-- Keep your original CSS -->
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="bg-gray-900 text-gray-100">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
