@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import ChatPage from './pages/ChatPage';
 import KnowledgeLibraryPage from './pages/KnowledgeLibraryPage';
@@ -62,7 +61,6 @@ const App: React.FC = () => {
         ) : <LandingPage onStart={() => setActiveView('interests')} onNavigate={handleNavigate} />;
       case 'landing':
       default:
-        // Updated flow: Landing -> Interests
         return <LandingPage onStart={() => setActiveView('interests')} onNavigate={handleNavigate} />;
     }
   };
@@ -70,10 +68,10 @@ const App: React.FC = () => {
   return (
     <LanguageProvider>
       <ChatProvider>
-        <div className="flex h-screen w-screen bg-gray-900 text-gray-100 overflow-hidden">
+        <div className="flex h-screen w-screen bg-gray-900 text-gray-100 overflow-hidden md:overflow-hidden">
           {/* Sidebar - Only visible for main app views */}
           {!isOnboardingFlow && (
-            <div className={`fixed inset-y-0 left-0 z-30 w-64 bg-gray-950 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex md:flex-shrink-0`}>
+            <div className={ixed inset-y-0 left-0 z-30 w-64 bg-gray-950 transform  transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex md:flex-shrink-0}>
               <Sidebar
                 closeSidebar={() => setSidebarOpen(false)}
                 activeView={activeView}
@@ -82,7 +80,7 @@ const App: React.FC = () => {
             </div>
           )}
 
-          <div className="flex-1 flex flex-col relative overflow-hidden">
+          <div className="flex-1 flex flex-col relative overflow-y-auto overflow-x-hidden">
             {/* Mobile Menu Button - Only for main app views */}
             {!isOnboardingFlow && (
               <button
