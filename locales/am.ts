@@ -1,4 +1,3 @@
-
 import { TranslationResource } from './types';
 
 const am: TranslationResource = {
@@ -9,7 +8,7 @@ const am: TranslationResource = {
   },
   sidebar: {
     newChat: "አዲስ ውይይት",
-    library: "የእውቀት ቤተ-መጽሐፍት",
+    library: "የእውቀት ቤተ-መጽሀፍት",
     projects: "ፕሮጀክቶች",
     legacyWallet: "የቀድሞ ቦርሳ",
     wallet: "ቦርሳ",
@@ -18,11 +17,11 @@ const am: TranslationResource = {
     recent: "የቅርብ ጊዜ",
     rename: "ስም ቀይር",
     delete: "ሰርዝ",
-    deleteConfirm: "ይህንን የውይይት ክፍለ ጊዜ መሰረዝ ይፈልጋሉ? ይህ እርምጃ ሊቀለብስ አይችልም።",
+    deleteConfirm: "ይህንን የውይይት ክፍለ ጊዜ መሰረዝ ይፈልጋሉ? ይህ እርምጃ ሊቀለበስ አይችልም።",
   },
   chat: {
     welcomeTitle: "እንኳን ወደ ዘመናይ በደህና መጡ",
-    welcomeSubtitle: "ለመጀመር በጎን በኩል 'አዲስ ውይይት' የሚለውን ይጫኑ።",
+    welcomeSubtitle: "ለመጀመር በጎን ባኩ 'አዲስ ውይይት' የሚለውን ይጫኑ።",
     inputPlaceholder: "ጥያቄዎን እዚህ ያስገቡ...",
     listening: "በማዳመጥ ላይ...",
     disclaimer: "ዘመናይ ስህተት ሊሰራ ይችላል። እባክዎ ጠቃሚ መረጃዎችን ያረጋግጡ።",
@@ -35,17 +34,17 @@ const am: TranslationResource = {
       share: "አጋራ",
       more: "ተጨማሪ",
       report: "ሪፖርት አድርግ",
-      reportSuccess: "መልዕክቱ ሪፖርት ተደርጓል",
+      reportSuccess: "መልዕክት ሪፖርት ተደርጓል",
     },
   },
   library: {
-    title: "የእውቀት ቤተ-መጽሐፍት",
-    description: "ፋይሎችን ይጫኑ፣ ይዘትዎን ያስተዳድሩ፣ መረጃዎን ወደ ግል ኤአይ እውቀት ይለውጡ።",
-    searchPlaceholder: "ቤተ-መጽሐፍትን ይፈልጉ...",
+    title: "የእውቀት ቤተ-መጽሀፍት",
+    description: "ፋይሎችን ይጫኑ፣ ይዘትዎን ያስተዳድሩ፣ መረጃን ወደ ግል ኤአይ እውቀት ይለውጡ።",
+    searchPlaceholder: "ቤተ-መጽሀፍትን ይፈልጉ...",
     tabs: {
       all: "ሁሉም",
       documents: "ሰነዶች",
-      articles: "ጽሑፎች",
+      articles: "ጽሁፎች",
       summaries: "ማጠቃለያዎች",
     },
     emptyState: "ምንም የተገኘ ነገር የለም።",
@@ -57,7 +56,7 @@ const am: TranslationResource = {
       download: "አውርድ",
     },
     upload: {
-      buttonLabel: "ፋይል ያውርዱ",
+      buttonLabel: "ፋይል ያያይዙ",
       dropLabel: "ፋይሎችን እዚህ ይጣሉ",
       status: {
         waiting: "በመጠበቅ ላይ...",
@@ -75,7 +74,7 @@ const am: TranslationResource = {
   },
   projects: {
     title: "ፕሮጀክቶች",
-    description: "ውይይቶችዎን፣ ፋይሎችዎን እና ተግባራትዎን በልዩ የስራ ቦታዎች ያደራጁ።",
+    description: "ውይይቶችዎን፣ ፋይሎችዎን እና ተግባራትዎን በሙሉ የስራ ቦታዎች ያደራጁ।",
     newProject: "አዲስ ፕሮጀክት",
     createCard: "አዲስ ፕሮጀክት ይፍጠሩ",
     stats: {
@@ -90,7 +89,7 @@ const am: TranslationResource = {
   wallet: {
     title: "የቦርሳ አጠቃላይ እይታ",
     balance: {
-        available: "ያለዎት ቀሪ ሂሳብ",
+        available: "ያለውት ቀሪ ሂሳብ",
         equivalent: "≈ $42.60 USD"
     },
     actions: {
@@ -141,7 +140,7 @@ const am: TranslationResource = {
         copy: "ሊንክ ቅዳ",
         copied: "ተቀድቷል!",
         share: "አጋራ",
-        footer: "ሊንኩን ለስራ ፈጣሪዎች እና ጓደኞች ያጋሩ።"
+        footer: "ሊንኩን ለስራ ምሥጥሮች እና ጓደኞች ያጋሩ።"
     },
     rewards: {
         title: "የሽልማት ደረጃዎች",
@@ -156,12 +155,12 @@ const am: TranslationResource = {
             date: "ቀን",
             plan: "ፕላን",
             reward: "ሽልማት",
-            status: "ሁኔታ"
+            status: "ምናታ"
         }
     },
     cta: {
         text: "የአፍሪካን ኤአይ ወደፊት ለመቅረጽ ያግዙ። ለሚጋብዙት እያንዳንዱ ጓደኛ ZSC ያግኙ።",
-        button: "ሊንኬን አጋራ"
+        button: "ሊንክን አጋራ"
     }
   },
   settings: {
@@ -195,15 +194,15 @@ const am: TranslationResource = {
       yearly: "በዓመት",
       saveBadge: "17% ይቆጥቡ",
       billedMonthly: "በየወሩ የሚከፈል",
-      billedAnnually: "በዓመት የሚከፈል",
+      billedAnnually: "በዓመቱ የሚከፈል",
       plan_free: {
-        title: "ነጻ",
+        title: "ነፃ",
         subtitle: "ከዘመናይ ጋር ይተዋወቁ",
         price: "$0",
         features: [
           "በድረ-ገጽ፣ iOS እና Android ከዘመናይ ጋር ይወያዩ",
-          "ይፃፉ፣ ያርትዑ እና ይዘት ይፍጠሩ",
-          "ጽሑፎችን ይተንትኑ እና ምስሎችን ይጫኑ",
+          "ይጻፉ፣ ያርትዑ እና ይፍጠሩ",
+          "ጽሁፎችን ይተንትኑ እና ምስሎችን ይጫኑ",
           "ኮድ ያመንጩ እና መረጃዎችን በምስል ይግለጹ",
           "የድር ፍለጋ ውጤቶችን በውይይት ውስጥ ያግኙ"
         ],
@@ -215,9 +214,9 @@ const am: TranslationResource = {
         monthlyPrice: "$20",
         yearlyPrice: "$17",
         features: [
-          "ከነጻው የበለጠ አጠቃቀም*",
+          "ከነፃው የበለጠ አጠቃቀም*",
           "ተጨማሪ የዘመናይ ሞዴሎችን ማግኘት",
-          "ውይይቶችን ለማደራጀት ያልተገደቡ ፕሮጀክቶች",
+          "ያልተገደቡ ፕሮጀክቶች ውይይቶችን ለማደራጀት",
           "ጥልቅ የምርምር መሳሪያዎችን ይክፈቱ",
           "ለተወሳሰቡ ስራዎች የተራዘመ ማሰብን ይጠቀሙ",
           "Google Workspaceን ያገናኙ፡ ኢሜይል፣ ቀን መቁጠሪያ እና ሰነዶች",
@@ -251,10 +250,10 @@ const am: TranslationResource = {
     payWithCard: "በካርድ ይክፈሉ",
     emailLabel: "ኢሜይል",
     cardLabel: "የካርድ መረጃ",
-    nameLabel: "የካርዱ ስም",
+    nameLabel: "የካርድ ስም",
     countryLabel: "ሀገር ወይም ክልል",
     payButton: "ይመዝገቡ",
-    secure: "በStripe የተጠበቀ",
+    secure: "በ Stripe የተጠበቀ",
     success: "ክፍያ ተሳክቷል!",
     processing: "ክፍያ በመፈጸም ላይ...",
   },
@@ -263,8 +262,8 @@ const am: TranslationResource = {
       title: "ወደ ዘመናይ በደህና መጡ",
       subtitle: "ልምድዎን ለእርስዎ ተስማሚ ለማድረግ 3 ፍላጎቶችን ይምረጡ።",
       items: {
-        creative: "ፈጠራ እና ጽሑፍ",
-        business: "ቢዝነስ እና ስትራቴጂ",
+        creative: "ምጥረ ጽሁፍ",
+        business: "ቢዝነስ እና ስትራተጂ",
         education: "ትምህርት እና ጥናት",
         health: "ጤና እና ደህንነት",
         technology: "ቴክኖሎጂ እና ኮድ",
@@ -274,11 +273,11 @@ const am: TranslationResource = {
       }
     },
     intro: {
-      title: "ሰላም፣ እኔ ዘመናይ ነኝ።",
+      title: "ዘመናይ መለያ ይፍጠሩ",
       blocks: {
         ask: { title: "የሆነ ነገር ማወቅ ይፈልጋሉ? ብቻ ይጠይቁ", description: "ስለ ማንኛውም ነገር ከእኔ ጋር ይወያዩ—ከቀላል ጥያቄዎች እስከ ውስብስብ ሀሳቦች። ሁሌም ለመርዳት ዝግጁ ነኝ።" },
-        safety: { title: "እኔ ለመርዳት እንጂ ለመጉዳት አልተፈጠርኩም", description: "ራስ-ሰር መከላከያዎች ንግግራችንን ከአደገኛ፣ ከስድብ ወይም ከአታላይ ይዘት ይጠብቃሉ።" },
-        improve: { title: "ዘመናይ ለሁሉም የተሻለ እንዲሆን ያግዙ", description: "ዘመናይን ለማሰልጠን እና ለማሻሻል የእርስዎን ውይይቶች እንጠቀማለን። ይህንን ቅንብር በማንኛውም ጊዜ በግላዊነት ቅንብሮች ውስጥ መቀየር ይችላሉ።" }
+        safety: { title: "እና ለመርዳት እንጂ ለመጉዳት አልተመረኩም", description: "ራስ-ሰር መከላከያዎች ንግግራቻችንን ከአደገኛ፣ ከስድብ ወይም ከአታላይ ይዘት ይጠብቃሉ።" },
+        improve: { title: "ዘመናይን ለሁሉም የተሻለ እንዲሆን ያግዙ", description: "ዘመናይን ለማሰልጠን እና ለማሻሻል የእርስዎን ውይይቶች እንጠቀማለን። ይህንን ቅንብር በማንኛውም ጊዜ በግላዊነት ቅንብሮች ውስጥ መቀየር ይችላሉ።" }
       },
       toggleLabel: "ዘመናይን ማሻሻል ያግዙ",
       cta: "ተረድቻለሁ"
@@ -286,9 +285,9 @@ const am: TranslationResource = {
     auth: {
       title: "መለያ ይፍጠሩ",
       subtitle: "ውይይቶችዎን ለማስቀመጥ እና ተጨማሪ ባህሪያትን ለማግኘት ዘመናይን ይቀላቀሉ።",
-      google: "በGoogle ይመዝገቡ",
-      apple: "በApple ይመዝገቡ",
-      facebook: "በFacebook ይመዝገቡ",
+      google: "በ Google ይመዝገቡ",
+      apple: "በ Apple ይመዝገቡ",
+      facebook: "በ Facebook ይመዝገቡ",
       email: "በኢሜይል ይቀጥሉ",
       footer: "አካውንት አለዎት?",
       footerLink: "ይግቡ"
