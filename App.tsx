@@ -71,7 +71,7 @@ const App: React.FC = () => {
         <div className="flex h-screen w-screen bg-gray-900 text-gray-100 overflow-hidden md:overflow-hidden">
           {/* Sidebar - Only visible for main app views */}
           {!isOnboardingFlow && (
-            <div className={ixed inset-y-0 left-0 z-30 w-64 bg-gray-950 transform  transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex md:flex-shrink-0}>
+            <div className={`fixed inset-y-0 left-0 z-30 w-64 bg-gray-950 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex md:flex-shrink-0`}>
               <Sidebar
                 closeSidebar={() => setSidebarOpen(false)}
                 activeView={activeView}
