@@ -1,9 +1,15 @@
-
-import React, { useState, useRef, useEffect } from 'react';
-import { PlusIcon, SettingsIcon, XIcon, ZemenaiIcon, ChatBubbleIcon, BookOpenIcon, FolderIcon, ThreeDotsIcon, WalletIcon, GiftIcon } from './Icons';
-import { useZemenaiChat } from '../hooks/useZemenaiChat';
-import { useLanguage } from '../contexts/LanguageContext';
-import type { View } from '../App';
+import React from 'react';
+import {
+  ChatIcon,
+  LibraryIcon,
+  ProjectsIcon,
+  SettingsIcon,
+  CloseIcon,
+  WalletIcon,
+  ReferralIcon,
+  UserIcon
+} from './Icons';
+import { View } from '../App';
 
 interface SidebarProps {
   closeSidebar: () => void;
@@ -12,217 +18,83 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ closeSidebar, activeView, setActiveView }) => {
-  const { sessions, activeSessionId, createNewSession, switchSession, deleteSession, renameSession } = useZemenaiChat();
-  const { t, language, changeLanguage, availableLanguages } = useLanguage();
-  
-  const [menuOpenFor, setMenuOpenFor] = useState<string | null>(null);
-  const [renamingId, setRenamingId] = useState<string | null>(null);
-  const [renameValue, setRenameValue] = useState('');
-  const menuRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const menuItems = [
+    { view: 'chat' as View, label: 'Chat', icon: ChatIcon },
+    { view: 'library' as View, label: 'Knowledge Library', icon: LibraryIcon },
+    { view: 'projects' as View, label: 'Projects', icon: ProjectsIcon },
+    { view: 'wallet' as View, label: 'Wallet', icon: WalletIcon },
+    { view: 'referrals' as View, label: 'Referrals', icon: ReferralIcon },
+  ];
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpenFor(null);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [menuRef]);
-
-  useEffect(() => {
-    if (renamingId && inputRef.current) {
-      inputRef.current.focus();
-      inputRef.current.select();
-    }
-  }, [renamingId]);
-
-
-  const handleNewChat = () => {
-    createNewSession();
-    setActiveView('chat');
-    closeSidebar();
-  }
-
-  const handleSwitchChat = (id: string) => {
-    if (renamingId !== id) {
-      switchSession(id);
-      setActiveView('chat');
-      closeSidebar();
-    }
-  }
-
-  const handleViewChange = (view: View) => {
-    setActiveView(view);
-    closeSidebar();
-  };
-  
-  const handleDeleteChat = (id: string) => {
-    if (window.confirm(t('sidebar.deleteConfirm'))) {
-      deleteSession(id);
-    }
-    setMenuOpenFor(null);
-  };
-
-  const handleRenameStart = (session: typeof sessions[0]) => {
-    setRenamingId(session.id);
-    setRenameValue(session.title);
-    setMenuOpenFor(null);
-  }
-
-  const handleRenameSubmit = () => {
-    if (renamingId) {
-      renameSession(renamingId, renameValue);
-    }
-    setRenamingId(null);
-  }
-
-  const handleRenameKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleRenameSubmit();
-    } else if (e.key === 'Escape') {
-      setRenamingId(null);
-    }
-  }
+  const bottomItems = [
+    { view: 'profile' as View, label: 'Profile', icon: UserIcon },
+    { view: 'settings' as View, label: 'Settings', icon: SettingsIcon },
+  ];
 
   return (
-    <div className="flex flex-col h-full bg-gray-950 text-gray-200 border-r border-gray-800">
-      <div className="relative p-4 flex justify-center items-center border-b border-gray-800">
-        <button onClick={() => setActiveView('landing')} className="hover:opacity-80 transition-opacity">
-           <ZemenaiIcon className="text-3xl"/>
-        </button>
-        <button onClick={closeSidebar} className="md:hidden absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-md hover:bg-gray-800">
-          <XIcon className="h-6 w-6" />
-        </button>
-      </div>
-
-      <div className="p-4">
-        <button 
-          onClick={handleNewChat}
-          className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-          <PlusIcon className="h-5 w-5" />
-          <span className={`font-medium ${language === 'am' ? 'font-amharic' : ''}`}>{t('sidebar.newChat')}</span>
-        </button>
-      </div>
-
-      <div className="px-4 py-2 space-y-1 border-b border-gray-800 mb-2">
-         <button 
-            onClick={() => handleViewChange('library')} 
-            className={`w-full flex items-center gap-3 px-3 py-2 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors text-left ${activeView === 'library' ? 'bg-gray-800' : ''}`}
-          >
-            <BookOpenIcon className="h-5 w-5 text-gray-400" />
-            <span className={`font-medium ${language === 'am' ? 'font-amharic' : ''}`}>{t('sidebar.library')}</span>
-        </button>
-        <button 
-            onClick={() => handleViewChange('projects')} 
-            className={`w-full flex items-center gap-3 px-3 py-2 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors text-left ${activeView === 'projects' ? 'bg-gray-800' : ''}`}
+    <div className="flex flex-col h-full bg-gray-950 border-r border-gray-800">
+      {/* Header */}
+      <div className="flex items-center justify-between p-4 border-b border-gray-800">
+        <h2 className="text-xl font-bold text-white">ZemenAI</h2>
+        <button
+          onClick={closeSidebar}
+          className="md:hidden p-2 rounded-md text-gray-400 hover:bg-gray-800"
+          aria-label="Close sidebar"
         >
-            <FolderIcon className="h-5 w-5 text-gray-400" />
-            <span className={`font-medium ${language === 'am' ? 'font-amharic' : ''}`}>{t('sidebar.projects')}</span>
+          <CloseIcon className="h-5 w-5" />
         </button>
-        
-        {/* Legacy Wallet Section - Title Removed */}
-        <div className="pt-4 pb-1">
-            <button 
-                onClick={() => handleViewChange('wallet')} 
-                className={`w-full flex items-center gap-3 px-3 py-2 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors text-left ${activeView === 'wallet' ? 'bg-gray-800' : ''}`}
-            >
-                <WalletIcon className="h-5 w-5 text-gray-400" />
-                <span className={`font-medium ${language === 'am' ? 'font-amharic' : ''}`}>{t('sidebar.wallet')}</span>
-            </button>
-            <button 
-                onClick={() => handleViewChange('referrals')} 
-                className={`w-full flex items-center gap-3 px-3 py-2 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors text-left ${activeView === 'referrals' ? 'bg-gray-800' : ''}`}
-            >
-                <GiftIcon className="h-5 w-5 text-gray-400" />
-                <span className={`font-medium ${language === 'am' ? 'font-amharic' : ''}`}>{t('sidebar.referrals')}</span>
-            </button>
-        </div>
       </div>
 
-      <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
-         <p className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">{t('sidebar.recent')}</p>
-         {sessions.map((session) => (
-          <div
-            key={session.id}
-            onClick={() => handleSwitchChat(session.id)}
-            className={`group relative flex items-center justify-between gap-2 px-3 py-2 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer ${
-              session.id === activeSessionId && activeView === 'chat' ? 'bg-gray-800' : ''
-            }`}
-          >
-            <div className="flex items-center gap-3 overflow-hidden flex-1">
-                <ChatBubbleIcon className="h-5 w-5 text-gray-400 flex-shrink-0" />
-                {renamingId === session.id ? (
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={renameValue}
-                    onChange={(e) => setRenameValue(e.target.value)}
-                    onBlur={handleRenameSubmit}
-                    onKeyDown={handleRenameKeyDown}
-                    className="bg-gray-700 text-white text-sm p-0.5 rounded w-full focus:outline-none focus:ring-1 focus:ring-blue-500"
-                  />
-                ) : (
-                  <span className="font-medium text-sm truncate">{session.title}</span>
-                )}
-            </div>
-            {renamingId !== session.id && (
-              <div className="relative">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setMenuOpenFor(menuOpenFor === session.id ? null : session.id);
-                  }}
-                  className="p-1 rounded-md text-gray-500 hover:text-gray-200 hover:bg-gray-700/50 opacity-0 group-hover:opacity-100 transition-opacity"
-                  aria-label="Chat options"
-                >
-                  <ThreeDotsIcon className="h-4 w-4" />
-                </button>
-                {menuOpenFor === session.id && (
-                  <div ref={menuRef} className="absolute z-10 right-0 top-full mt-1 w-36 bg-gray-900 border border-gray-700 rounded-md shadow-lg py-1">
-                    <button
-                      onClick={(e) => { e.stopPropagation(); handleRenameStart(session); }}
-                      className={`w-full text-left px-4 py-2 text-sm text-gray-200 hover:bg-gray-800 ${language === 'am' ? 'font-amharic' : ''}`}
-                    >
-                      {t('sidebar.rename')}
-                    </button>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); handleDeleteChat(session.id); }}
-                      className={`w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-gray-800 ${language === 'am' ? 'font-amharic' : ''}`}
-                    >
-                      {t('sidebar.delete')}
-                    </button>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        ))}
+      {/* Main Menu Items */}
+      <nav className="flex-1 overflow-y-auto p-4 space-y-2">
+        {menuItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = activeView === item.view;
+
+          return (
+            // In Sidebar.tsx, add this menu item:
+            <button
+              onClick={() => {
+                setActiveView('profile');
+                closeSidebar();
+              }}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${activeView === 'profile'
+                  ? 'bg-blue-600 text-white'
+                  : 'text-gray-300 hover:bg-gray-800'
+                }`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span>Profile</span>
+            </button>
+          );
+        })}
       </nav>
 
-      <div className="p-4 border-t border-gray-800 mt-auto">
-        {/* Mini Language Switcher */}
-        <div className="flex justify-center gap-2 mb-3">
-          {availableLanguages.map((lang) => (
-             <button
-               key={lang.code}
-               onClick={() => changeLanguage(lang.code)}
-               className={`text-lg hover:scale-110 transition-transform ${language === lang.code ? 'opacity-100 grayscale-0' : 'opacity-50 grayscale'}`}
-               title={lang.label}
-             >
-               {lang.flag}
-             </button>
-          ))}
-        </div>
+      {/* Bottom Menu Items */}
+      <div className="p-4 space-y-2 border-t border-gray-800">
+        {bottomItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = activeView === item.view;
 
-        <button 
-          onClick={() => handleViewChange('settings')} 
-          className={`w-full flex items-center gap-3 px-3 py-2 text-gray-300 rounded-lg hover:bg-gray-800 text-left ${activeView === 'settings' ? 'bg-gray-800' : ''}`}
-        >
-          <SettingsIcon className="h-5 w-5" />
-          <span className={`font-medium ${language === 'am' ? 'font-amharic' : ''}`}>{t('sidebar.settings')}</span>
-        </button>
+          return (
+            <button
+              key={item.view}
+              onClick={() => {
+                setActiveView(item.view);
+                closeSidebar();
+              }}
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${isActive
+                ? 'bg-blue-600 text-white'
+                : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+                }`}
+            >
+              <Icon className="w-5 h-5" />
+              <span className="font-medium">{item.label}</span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
