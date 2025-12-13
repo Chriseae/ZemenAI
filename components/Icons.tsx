@@ -399,11 +399,14 @@ export const EmailIcon: React.FC<{ className?: string }> = ({ className }) => (
 
 // --- Wallet & Referral Icons ---
 
-export const WalletIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
-    <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
-    <path d="M18 12a2 2 0 0 0 0 4h4v-4Z" />
+export const WalletIcon: React.FC<IconProps> = ({ className }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3"
+    />
   </svg>
 );
 
