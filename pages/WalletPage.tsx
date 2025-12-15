@@ -514,7 +514,7 @@ const WalletPage: React.FC = () => {
       {/* Footnote */}
       <div className="mt-6 pt-4 border-t border-gray-700">
         <p className={`text-xs text-gray-500 text-center ${fontClass}`}>
-          <strong>{language === 'am' ? 'ማስታወሻ:' : 'Note:'}</strong> {language === 'am' ? 'ZMX ወደ ጥሬ ገንዘብ መቀየር አይቻልም ለወደፊቱ በግልጽ እስካልተነቃ ድረስ።' : 'ZMX is not redeemable for cash unless explicitly enabled in the future.'}
+          <strong>{language === 'am' ? 'ማስታወሻ:' : 'Note:'}</strong> {language === 'am' ? 'ZMX ወደ ጥሬ ገንዘብ መቀየር አይቻልም ለወደፊቱ በይፋ እስኪገለጽ ድረስ።' : 'ZMX is not redeemable for cash unless explicitly enabled in the future.'}
         </p>
       </div>
 
