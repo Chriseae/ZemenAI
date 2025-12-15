@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 // ZMX Transaction types
@@ -509,6 +509,13 @@ const WalletPage: React.FC = () => {
             )}
           </div>
         </div>
+      </div>
+
+      {/* Footnote */}
+      <div className="mt-6 pt-4 border-t border-gray-700">
+        <p className={`text-xs text-gray-500 text-center ${fontClass}`}>
+          <strong>{language === 'am' ? 'ማስታወሻ:' : 'Note:'}</strong> {language === 'am' ? 'ZMX ወደ ጥሬ ገንዘብ መቀየር አይቻልም ለወደፊቱ በግልጽ እስካልተነቃ ድረስ።' : 'ZMX is not redeemable for cash unless explicitly enabled in the future.'}
+        </p>
       </div>
 
       {/* Send Modal */}
