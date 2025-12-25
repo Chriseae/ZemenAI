@@ -14,8 +14,8 @@ import ReferralPage from './pages/ReferralPage';
 import ProfilePage from './pages/ProfilePage';
 import { MenuIcon } from './components/Icons';
 import { ChatProvider } from './hooks/useZemenaiChat';
-import { LanguageProvider } from './Contexts/LanguageContext';
-import { AuthProvider } from './Contexts/AuthContext';
+import { LanguageProvider } from './contexts/LanguageContext';
+import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import EmailVerificationBanner from './components/EmailVerificationBanner';
 
@@ -24,7 +24,7 @@ export type View = 'landing' | 'interests' | 'intro' | 'auth' | 'chat' | 'librar
 const App: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeView, setActiveView] = useState<View>('landing');
-  const [checkoutParams, setCheckoutParams] = useState<{ plan: 'pro' | 'max'; billing: 'monthly' | 'yearly' } | null>(null);
+  const [checkoutParams, setCheckoutParams] = useState<{ plan: 'pro' | 'enterprise'; billing: 'monthly' | 'yearly' } | null>(null);
 
   const handleNavigate = (view: View, params?: any) => {
     if (view === 'checkout' && params) {

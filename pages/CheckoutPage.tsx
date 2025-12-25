@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useLanguage } from '../Contexts/LanguageContext';
-import { ArrowLeftIcon, LockIcon, CreditCardIcon, LoadingIcon, CheckIcon } from '../Components/Icons';
+import { useLanguage } from '../contexts/LanguageContext';
+import { ArrowLeftIcon, LockIcon, CreditCardIcon, LoadingIcon, CheckIcon } from '../components/Icons';
 
 // Use the public key provided
 const STRIPE_PUBLIC_KEY = 'pk_test_51SDNNZHXgbxGHKRx2CvFW6Uc0AtrQldWPrcgIg3ky0Bz5XseVBPYlof9EntDxkcWWzI4sw57T3DIdmqTnEQMoUSS003zpIyb6n';
