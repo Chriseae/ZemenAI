@@ -204,12 +204,13 @@ const en: TranslationResource = {
         features: [
           "Chat with ZemenAI on web, iOS, and Android",
           "Write, edit, and create content",
-          "Analyze text and upload images",
-          "Generate code and visualize data",
+          "Organize unlimited projects discussions",
+          "Use basic AI models",
           "Maintain consistency and earn ZMX by using it daily",
           "Earn by completing tasks",
           "Stay updated by using the knowledge library",
-          "Get more opportunities by inviting people"
+          "Get more opportunities by inviting people",
+          "Includes completion incentives"
         ],
         cta: "Launch Starter"
       },
@@ -220,13 +221,12 @@ const en: TranslationResource = {
         yearlyPrice: "$9.96",
         features: [
           "In addition to the features in the Starter plan, you will also have:",
-          "Access more ZemenAI models",
-          "Unlimited Projects to organize chats",
           "Unlock advanced research tools",
           "Utilize extended reasoning for complex tasks",
-          "Connect Google Workspace: email, calendar, and docs",
-          "Integrations with remote MCP",
-          "Includes completion boosts"
+          "Far MCP integrations",
+          "Manage large files",
+          "Kstarters get more referral bonus",
+          "Includes 5X completion incentives"
         ],
         cta: "Go Pro"
       },
@@ -237,9 +237,10 @@ const en: TranslationResource = {
         yearlyPrice: "From $49.8",
         features: [
           "In addition to the features in Pro, you will have:",
+          "Generate code and visualize data",
           "Higher output limits for all tasks",
+          "Unlock deep research tools",
           "Early access to advanced ZemenAI features",
-          "Priority access at high traffic times",
           "Higher value reward points",
           "Manage larger files",
           "Referral super-bonus",

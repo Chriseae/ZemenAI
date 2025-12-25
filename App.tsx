@@ -14,8 +14,8 @@ import ReferralPage from './pages/ReferralPage';
 import ProfilePage from './pages/ProfilePage';
 import { MenuIcon } from './components/Icons';
 import { ChatProvider } from './hooks/useZemenaiChat';
-import { LanguageProvider } from './contexts/LanguageContext';
-import { AuthProvider } from './contexts/AuthContext';
+import { LanguageProvider } from './Contexts/LanguageContext';
+import { AuthProvider } from './Contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import EmailVerificationBanner from './components/EmailVerificationBanner';
 
@@ -28,7 +28,7 @@ const App: React.FC = () => {
 
   const handleNavigate = (view: View, params?: any) => {
     if (view === 'checkout' && params) {
-        setCheckoutParams(params);
+      setCheckoutParams(params);
     }
     setActiveView(view);
   };
@@ -62,11 +62,11 @@ const App: React.FC = () => {
           return <SignInSignUpScreen onComplete={() => setActiveView('chat')} />;
         case 'checkout':
           return checkoutParams ? (
-              <CheckoutPage 
-                  plan={checkoutParams.plan} 
-                  billing={checkoutParams.billing} 
-                  onBack={() => setActiveView('landing')} 
-              />
+            <CheckoutPage
+              plan={checkoutParams.plan}
+              billing={checkoutParams.billing}
+              onBack={() => setActiveView('landing')}
+            />
           ) : <LandingPage onStart={() => setActiveView('interests')} onNavigate={handleNavigate} />;
         case 'landing':
         default:

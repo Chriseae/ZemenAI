@@ -537,7 +537,7 @@ export const ETHIOPIAN_LANGUAGES = [
         supportStatus: 'planned',
         defaultFallback: 'en'
     }
-] as const satisfies readonly Language[]; // Sort alphabetically by native name
+] as const satisfies readonly Language[];
 
 // Helper functions
 export const getLanguageByCode = (code: string): Language | undefined => {

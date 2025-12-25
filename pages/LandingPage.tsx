@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ZemenaiIcon, CheckIcon, SponsorLogo } from '../components/Icons';
-import { useLanguage } from '../contexts/LanguageContext';
+import { ZemenaiIcon, CheckIcon, SponsorLogo } from '../Components/Icons';
+import { useLanguage } from '../Contexts/LanguageContext';
 
 interface LandingPageProps {
     onStart: () => void;
@@ -174,7 +174,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStart, onNavigate }) => {
                             <SponsorLogo name="HADERO" className="text-xl text-gray-200" />
                             <SponsorLogo name="OVID" className="text-xl text-gray-200" />
                             <SponsorLogo name="BOON" className="text-xl text-gray-200" />
-                            <SponsorLogo name="BELESI" className="text-xl text-gray-200" />
+                            <SponsorLogo name="BELESSI" className="text-xl text-gray-200" />
                             <SponsorLogo name="FIGTREE" className="text-xl text-gray-200" />
                         </div>
                     </div>
