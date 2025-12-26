@@ -9,9 +9,8 @@ export interface Language {
     defaultFallback: 'en' | 'am';
 }
 
-export const ETHIOPIAN_LANGUAGES = [
+export const ETHIOPIAN_LANGUAGES: Language[] = [
     // SEMITIC LANGUAGES
-    // Amharic - Full support
     {
         code: 'am',
         nativeName: 'አማርኛ',
@@ -20,7 +19,6 @@ export const ETHIOPIAN_LANGUAGES = [
         supportStatus: 'full',
         defaultFallback: 'en'
     },
-    // Tigrinya
     {
         code: 'ti',
         nativeName: 'ትግርኛ',
@@ -29,7 +27,6 @@ export const ETHIOPIAN_LANGUAGES = [
         supportStatus: 'planned',
         defaultFallback: 'en'
     },
-    // Tigre
     {
         code: 'tig',
         nativeName: 'ትግረ',
@@ -38,7 +35,6 @@ export const ETHIOPIAN_LANGUAGES = [
         supportStatus: 'planned',
         defaultFallback: 'en'
     },
-    // Geʽez
     {
         code: 'gez',
         nativeName: 'ግእዝ',
@@ -47,8 +43,6 @@ export const ETHIOPIAN_LANGUAGES = [
         supportStatus: 'planned',
         defaultFallback: 'en'
     },
-
-    // GURAGE LANGUAGES
     {
         code: 'sgw',
         nativeName: 'ጫሃ',
@@ -105,8 +99,6 @@ export const ETHIOPIAN_LANGUAGES = [
         supportStatus: 'planned',
         defaultFallback: 'am'
     },
-
-    // OTHER SEMITIC
     {
         code: 'agj',
         nativeName: 'አርጎባ',
@@ -131,8 +123,6 @@ export const ETHIOPIAN_LANGUAGES = [
         supportStatus: 'planned',
         defaultFallback: 'am'
     },
-
-    // CUSHITIC LANGUAGES
     {
         code: 'om',
         nativeName: 'Afaan Oromoo',
@@ -301,8 +291,6 @@ export const ETHIOPIAN_LANGUAGES = [
         supportStatus: 'planned',
         defaultFallback: 'en'
     },
-
-    // OMOTIC LANGUAGES
     {
         code: 'wal',
         nativeName: 'Wolaytta',
@@ -431,8 +419,6 @@ export const ETHIOPIAN_LANGUAGES = [
         supportStatus: 'planned',
         defaultFallback: 'en'
     },
-
-    // NILO-SAHARAN LANGUAGES
     {
         code: 'nus',
         nativeName: 'Thok Naath',
@@ -537,19 +523,19 @@ export const ETHIOPIAN_LANGUAGES = [
         supportStatus: 'planned',
         defaultFallback: 'en'
     }
-] as const satisfies readonly Language[];
+];
 
 // Helper functions
 export const getLanguageByCode = (code: string): Language | undefined => {
-    return ETHIOPIAN_LANGUAGES.find(lang => lang.code === code) as Language | undefined;
+    return ETHIOPIAN_LANGUAGES.find(lang => lang.code === code);
 };
 
 export const getLanguagesByFamily = (family: Language['family']): Language[] => {
-    return ETHIOPIAN_LANGUAGES.filter(lang => lang.family === family) as Language[];
+    return ETHIOPIAN_LANGUAGES.filter(lang => lang.family === family);
 };
 
 export const getSupportedLanguages = (): Language[] => {
-    return ETHIOPIAN_LANGUAGES.filter(lang => lang.supportStatus === 'full' || lang.supportStatus === 'partial') as Language[];
+    return ETHIOPIAN_LANGUAGES.filter(lang => lang.supportStatus === 'full' || lang.supportStatus === 'partial');
 };
 
 export const getStatusIcon = (status: Language['supportStatus']): string => {
